@@ -74,7 +74,7 @@ int main(int argc, TCHAR* argv[])
 	{
 		cout << "Не хватает эл-ов для удаления!!!!" << endl;
 	}
-
+	bla-bla
 		system("pause");
 	return 0;
 }
