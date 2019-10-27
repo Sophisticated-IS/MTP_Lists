@@ -26,7 +26,8 @@ int main(int argc, TCHAR* argv[])
 	(*t).d = list_siz;//хранится размер списка
 
 	one = t;
-
+    n* t1;//Используется только для вывода списка
+	
 	int elem_list = 0;
 	for (int i = 0; i < list_siz; i++)
 	{
@@ -39,43 +40,49 @@ int main(int argc, TCHAR* argv[])
 
 		(*t).next = elem;
 		t = (*t).next;
+//*****************************************ВЫВОД СПИСКА ПОСЛЕ ВСТАВКИ*******************
+		for (t1 = one; t1 != NULL; t1 = (*t1).next)
+			cout << "адр указ t1= " << t1 << " знач поля D=" << (*t1).d << " знач поля next=" << (*t1).next << endl;
+		cout << endl;
 	}
 	cout << endl;
-	n* t1;
-	for (t1 = one; t1 != NULL; t1 = (*t1).next)
+	
+	/*for (t1 = one; t1 != NULL; t1 = (*t1).next)
 		cout << "адр указ t1= " << t1 << " знач поля D=" << (*t1).d << " знач поля next=" << (*t1).next << endl;
-	cout << endl;
+	cout << endl;*/
 
 	//*************************СРЕднее арифм-ое************************************
 	int summ = 0;
 	for (t1 = (*one).next; t1 != NULL; t1 = (*t1).next)//ср арифм-ое
 		summ += (*t1).d;
-	cout << "Среднее арифметическое=" << summ / (*one).d << endl;
+	cout << "Среднее арифметическое = " << summ / (*one).d << endl<<endl;
 	//************УДАЛЕНИЕ ПЕРВЫХ ДВУЧ ЭЛ-ОВ******************************************************
-	free(t1);
+	cout << "********************************удаление первых ДВУХ элементов***********"<<endl<<endl;
 	if ((*one).d >= 2)
 	{
 		n* del_el;//удал-ый эл-нт
+		
 		for (int i = 0; i < 2; i++)
 		{
 
 			del_el = (*one).next;
 			(*one).next = (*del_el).next;
-		}
-		(*one).d -= 2;
-		n* t1;
-		for (t1 = one; t1 != NULL; t1 = (*t1).next)
+		 //ВЫВОД ЭЛ-ОВ ПРИ КАЖДОМ УДАЛЕНИИ
+			for (t1 = one; t1 != NULL; t1 = (*t1).next)
 			cout << "адр указ t1= " << t1 << " знач поля D=" << (*t1).d << " знач поля next=" << (*t1).next << endl;
 		cout << endl;
-		free(t1);
+		}
+		(*one).d -= 2;
+	
+		
 	}
 
 	else
 	{
 		cout << "Не хватает эл-ов для удаления!!!!" << endl;
-	}
-	bla-bla русский 
-		system("pause");
+	} 
+		
+	system("pause");
 	return 0;
 }
 
